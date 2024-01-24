@@ -1,0 +1,6 @@
+variable "NSG" {
+
+}
+variable "sg" {
+
+}
