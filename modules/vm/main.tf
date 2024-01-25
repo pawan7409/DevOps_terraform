@@ -4,10 +4,10 @@ resource "azurerm_linux_virtual_machine" "vms" {
   resource_group_name             = each.value.resource_group_name
   location                        = each.value.location
   size                            = each.value.size
-  admin_username                  = "vm01"
-  admin_password                  = "Rjil@12345678"
+   admin_username                  = data.azurerm_key_vault_secret.admin_username[each.key].value
+  admin_password                  = data.azurerm_key_vault_secret.admin_password[each.key].value
   disable_password_authentication = false
-  network_interface_ids           = each.value.network_interface_ids
+  network_interface_ids           = [data.azurerm_network_interface.nicdata[each.key].id]
 
 
 
@@ -23,3 +23,25 @@ resource "azurerm_linux_virtual_machine" "vms" {
     version   = "latest"
   }
 }
+data "azurerm_key_vault" "locker6979" {
+  for_each = var.vms
+  name                = each.value.azurekeyvaultname
+  resource_group_name = each.value.resource_group_name
+
+}
+data "azurerm_key_vault_secret" "admin_username" {
+  for_each = var.vms
+  name         = "username"
+  key_vault_id = data.azurerm_key_vault.locker6979[each.key].id
+}
+data "azurerm_key_vault_secret" "admin_password" {
+  for_each = var.vms
+  name         = "password"
+  key_vault_id = data.azurerm_key_vault.locker6979[each.key].id
+}
+data "azurerm_network_interface" "nicdata" {
+  for_each = var.vms
+  name                = each.value.nicname
+  resource_group_name = each.value.resource_group_name
+}
+
