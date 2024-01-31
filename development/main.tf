@@ -108,3 +108,8 @@ module "applicationgateway" {
   depends_on = [ module.resourcegroup , module.ipconfigure]
 applicationgateway =var.applicationgateway
 }
+module "appgwassociation" {
+  source = "../modules/appgwbackpoolassociation"
+  depends_on = [ module.applicationgateway]
+  appgwassociation = var.appgwassociation
+}

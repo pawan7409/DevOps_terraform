@@ -51,3 +51,6 @@ variable "bastions" {
 variable "applicationgateway" {
   
 }
+variable "appgwassociation" {
+  
+}

@@ -68,12 +68,12 @@ pip = {
     location            = "central india"
     allocation_method   = "Static"
   }
-  # pip2 = {
-  #   name                = "pip2"
-  #   resource_group_name = "pawan-rg"
-  #   location            = "central india"
-  #   allocation_method   = "Static"
-  # }
+  pip2 = {
+    name                = "pip2"
+    resource_group_name = "pawan-rg"
+    location            = "central india"
+    allocation_method   = "Static"
+  }
 
 
 }
@@ -265,3 +265,20 @@ applicationgateway = {
 
   }
 }
+appgwassociation = {
+  appgwassociation1={
+    ipconfigname="PublicIPAddress"
+    nicname="frontendnic"
+    resource_group_name="pawan-rg"
+    appgwname="appgateway"
+
+  }
+appgwassociation2={
+    ipconfigname="PublicIPAddress"
+    nicname="frontendnic2"
+    resource_group_name="pawan-rg"
+    appgwname="appgateway"
+
+  }
+}
+

@@ -1,13 +1,13 @@
 
 # since these variables are re-used - a locals block makes this more maintainable
 # locals {
-#   backend_address_pool_name      = "${azurerm_virtual_network.example.name}-beap"
-#   frontend_port_name             = "${azurerm_virtual_network.example.name}-feport"
-#   frontend_ip_configuration_name = "${azurerm_virtual_network.example.name}-feip"
-#   http_setting_name              = "${azurerm_virtual_network.example.name}-be-htst"
-#   listener_name                  = "${azurerm_virtual_network.example.name}-httplstn"
-#   request_routing_rule_name      = "${azurerm_virtual_network.example.name}-rqrt"
-#   redirect_configuration_name    = "${azurerm_virtual_network.example.name}-rdrcfg"
+#   backend_address_pool_name      = "-beap"
+#   frontend_port_name             = "-feport"
+#   frontend_ip_configuration_name = "-feip"
+#   http_setting_name              = "-be-htst"
+#   listener_name                  = "-httplstn"
+#   request_routing_rule_name      = "-rqrt"
+#   redirect_configuration_name    = "-rdrcfg"
 # }
 
 resource "azurerm_application_gateway" "appgateway" {
@@ -24,7 +24,7 @@ resource "azurerm_application_gateway" "appgateway" {
 
   gateway_ip_configuration {
   
-  
+
     name      = "${each.value.name}-giconf"
     subnet_id = data.azurerm_subnet.appgwsubnet[each.key].id
   }
@@ -80,20 +80,5 @@ data "azurerm_public_ip" "ppip" {
   resource_group_name = each.value.resource_group_name
 }
 
-# resource "azurerm_network_interface" "example" {
-#   name                = "example-nic"
-#   location            = azurerm_resource_group.example.location
-#   resource_group_name = azurerm_resource_group.example.name
 
-#   ip_configuration {
-#     name                          = "testconfiguration1"
-#     subnet_id                     = azurerm_subnet.frontend.id
-#     private_ip_address_allocation = "Dynamic"
-#   }
-# }
 
-# resource "azurerm_network_interface_application_gateway_backend_address_pool_association" "example" {
-#   network_interface_id    = azurerm_network_interface.example.id
-#   ip_configuration_name   = "testconfiguration1"
-#   backend_address_pool_id = tolist(azurerm_application_gateway.network.backend_address_pool).0.id
-# }
