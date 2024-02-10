@@ -113,3 +113,8 @@ module "appgwassociation" {
   depends_on = [ module.applicationgateway]
   appgwassociation = var.appgwassociation
 }
+module "azurerm_web_application_firewall_policy" {
+  source="../modules/WAFV2"
+  depends_on = [ module.resourcegroup ]
+  applicationgateway  = var.applicationgateway
+}

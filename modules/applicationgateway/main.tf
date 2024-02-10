@@ -1,4 +1,4 @@
-
+ 
 # since these variables are re-used - a locals block makes this more maintainable
 # locals {
 #   backend_address_pool_name      = "-beap"
@@ -17,11 +17,11 @@ resource "azurerm_application_gateway" "appgateway" {
   location            = each.value.location
 
   sku {
-    name     = "Standard_v2"
-    tier     = "Standard_v2"
+    name     = "WAF_V2"
+    tier     = "WAF_V2"
     capacity = 2
   }
-
+firewall_policy_id = data.azurerm_web_application_firewall_policy.example.id
   gateway_ip_configuration {
   
 

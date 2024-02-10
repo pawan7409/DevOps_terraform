@@ -54,3 +54,6 @@ variable "applicationgateway" {
 variable "appgwassociation" {
   
 }
+variable "WAFV2" {
+  
+}
