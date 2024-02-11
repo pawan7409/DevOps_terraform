@@ -22,22 +22,7 @@ vnet = {
   }
 
 }
-# vnetpeering = {
-#   vnetpeering1 = {
-#     virtualNetwork1           = "vnet01"
-#     resource_group_name       = "pawan-rg"
-#     vnet01addressspace        = ["10.0.0.0/16"]
-#     vnet02addressspace        = ["10.0.2.0/16"]
-#     location                  = "central india"
-#     virtualNetwork2           = "vnet02"
-#     vnetpeering1              = "vnet01tovnet02"
-#     virtual_network_name      = "vnet01"
-#     remote_virtual_network_id1 = "vnet02"
-#     remote_virtual_network_id2="vnet01"
-#     vnetpeering2              = "vnet02tovnet01"
 
-#   }
-# }
 subnet = {
   subnet1 = {
     name                 = "subnet1"
@@ -153,7 +138,7 @@ vms = {
     # admin_password                  = "Rjil@12345678"
     disable_password_authentication = false
     # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic2"]
-    #  azurekeyvaultname="locker54"
+    #  azurekeyvaultname="locker6979"
     nicname           = "frontendnic"
     azurekeyvaultname = "locker6979"
 
@@ -266,22 +251,38 @@ applicationgateway = {
   }
 }
 appgwassociation = {
-  appgwassociation1={
-    ipconfigname="PublicIPAddress"
-    nicname="frontendnic"
-    resource_group_name="pawan-rg"
-    appgwname="appgateway"
+  appgwassociation1 = {
+    ipconfigname        = "PublicIPAddress"
+    nicname             = "frontendnic"
+    resource_group_name = "pawan-rg"
+    appgwname           = "appgateway"
 
   }
-appgwassociation2={
-    ipconfigname="PublicIPAddress"
-    nicname="frontendnic2"
-    resource_group_name="pawan-rg"
-    appgwname="appgateway"
+  appgwassociation2 = {
+    ipconfigname        = "PublicIPAddress"
+    nicname             = "frontendnic2"
+    resource_group_name = "pawan-rg"
+    appgwname           = "appgateway"
 
   }
 }
 
+storageaccount = {
+  storageaccount = {
+    name                = "storage887989"
+    resource_group_name = "pawan-rg"
+    location            = "central india"
+    # containername       = "container1"
+    subnetname          = "subnet1"
+    vnetname            = "vnet01"
 
+  }
+}
+vnetpeering={
+  resource_group_name= "pawan-rg"
+  vnet01name= "vnet01"
+  vnet02name= "vnet02"
+
+}
 
 

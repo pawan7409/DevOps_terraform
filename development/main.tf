@@ -104,17 +104,28 @@ module "bastions" {
 
 }
 module "applicationgateway" {
-  source = "../modules/applicationgateway"
-  depends_on = [ module.resourcegroup , module.ipconfigure]
-applicationgateway =var.applicationgateway
+  source             = "../modules/applicationgateway"
+  depends_on         = [module.resourcegroup, module.ipconfigure]
+  applicationgateway = var.applicationgateway
 }
 module "appgwassociation" {
-  source = "../modules/appgwbackpoolassociation"
-  depends_on = [ module.applicationgateway]
+  source           = "../modules/appgwbackpoolassociation"
+  depends_on       = [module.applicationgateway]
   appgwassociation = var.appgwassociation
 }
 module "azurerm_web_application_firewall_policy" {
-  source="../modules/WAFV2"
-  depends_on = [ module.resourcegroup ]
-  applicationgateway  = var.applicationgateway
+  source             = "../modules/WAFV2"
+  depends_on         = [module.resourcegroup]
+  applicationgateway = var.applicationgateway
+
+}
+module "azurerm_storage_account" {
+  source         = "../modules/storageacoount"
+  depends_on     = [module.resourcegroup]
+  storageaccount = var.storageaccount
+}
+module "azurerm_virtual_network"{
+  source = "../modules/vnetpeering"
+  depends_on = [ module.virtualnetwork ]
+  vnetpeering = var.vnetpeering
 }

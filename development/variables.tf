@@ -49,11 +49,15 @@ variable "bastions" {
 
 }
 variable "applicationgateway" {
-  
+
 }
 variable "appgwassociation" {
-  
+
 }
-variable "WAFV2" {
+
+variable "storageaccount" {
+
+}
+variable "vnetpeering" {
   
 }
