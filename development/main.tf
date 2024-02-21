@@ -124,8 +124,19 @@ module "azurerm_storage_account" {
   depends_on     = [module.resourcegroup]
   storageaccount = var.storageaccount
 }
-module "azurerm_virtual_network"{
-  source = "../modules/vnetpeering"
-  depends_on = [ module.virtualnetwork ]
-  vnetpeering = var.vnetpeering
+# module "azurerm_virtual_network"{
+#   source = "../modules/vnetpeering"
+#   depends_on = [ module.virtualnetwork ]
+#   vnetpeering = var.vnetpeering
+# }
+# module "azurerm_vpn_gateway" {
+#   source="../modules/VPNGW"
+#   depends_on =[module.virtualnetwork]
+#   vpngw= var.vpngw
+# }
+module "azurerm_availability_set" {
+  source = "../modules/availability_set"
+  depends_on=[module.resourcegroup]
+  availability_set=var.availability_set
+  
 }

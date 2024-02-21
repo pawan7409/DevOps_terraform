@@ -53,12 +53,12 @@ pip = {
     location            = "central india"
     allocation_method   = "Static"
   }
-  pip2 = {
-    name                = "pip2"
-    resource_group_name = "pawan-rg"
-    location            = "central india"
-    allocation_method   = "Static"
-  }
+  # pip2 = {
+  #   name                = "pip2"
+  #   resource_group_name = "pawan-rg"
+  #   location            = "central india"
+  #   allocation_method   = "Static"
+  # }
 
 
 }
@@ -140,7 +140,7 @@ vms = {
     # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic2"]
     #  azurekeyvaultname="locker6979"
     nicname           = "frontendnic"
-    azurekeyvaultname = "locker6979"
+    azurekeyvaultname = "locker7889"
 
 
   }
@@ -153,7 +153,7 @@ vms = {
     # admin_password                  = "Rjil@12345678"
     disable_password_authentication = false
     # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic"]
-    azurekeyvaultname = "locker6979"
+    azurekeyvaultname = "locker7889"
     nicname           = "frontendnic2"
 
 
@@ -186,11 +186,18 @@ sqldatabase = {
 }
 azurekeyvault = {
   azurekeyvault = {
-    name                = "locker6979"
-    location            = "west Europe"
+    name                = "locker7889"
+    location            = "central india"
     resource_group_name = "pawan-rg"
   }
 
+}
+availability_set = {
+  availability_set={
+    name= "aset"
+    location="central india"
+    resource_group_name= "pawan-rg"
+  }
 }
 lbn = {
   # lbn1 = {
@@ -272,17 +279,26 @@ storageaccount = {
     name                = "storage887989"
     resource_group_name = "pawan-rg"
     location            = "central india"
-    # containername       = "container1"
+    containername       = "container1"
     subnetname          = "subnet1"
     vnetname            = "vnet01"
 
   }
 }
-vnetpeering={
-  resource_group_name= "pawan-rg"
-  vnet01name= "vnet01"
-  vnet02name= "vnet02"
+# vnetpeering={
+#   resource_group_name= "pawan-rg"
+#   vnet01name= "vnet01"
+#   vnet02name= "vnet02"
 
-}
+# }
+# vpngw={
+#   wanname="wanvpn"
+#   resource_group_name="pawan-rg"
+#   location="central india"
+#   hubname="hubvpn"
+#   vpngwname="example-vpng"
+
+
+# }
 
 
