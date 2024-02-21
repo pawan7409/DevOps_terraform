@@ -1,8 +1,8 @@
-
 resource "azurerm_web_application_firewall_policy" "example" {
+  for_each = var.applicationgateway
   name                = "example-wafpolicy"
-  resource_group_name = azurerm_resource_group.toddo_rg.name
-  location            = azurerm_resource_group.toddo_rg.location
+  resource_group_name = "pawan-rg"
+  location            = "central india"
 
   custom_rules {
     name      = "Rule1"

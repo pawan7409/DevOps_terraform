@@ -1,3 +1,3 @@
-# variable "vnetpeering" {
+variable "vnetpeering" {
   
-# }
+}

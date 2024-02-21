@@ -3,7 +3,7 @@ data "azurerm_client_config" "current" {}
 
 
 
-resource "azurerm_key_vault" "locker45" {
+resource "azurerm_key_vault" "locker6979" {
   
   for_each = var.azurekeyvault
   name                       = each.value.name

@@ -17,8 +17,8 @@ resource "azurerm_application_gateway" "appgateway" {
   location            = each.value.location
 
   sku {
-    name     = "WAF_V2"
-    tier     = "WAF_V2"
+    name     = "WAF_v2"
+    tier     = "WAF_v2"
     capacity = 2
   }
 firewall_policy_id = data.azurerm_web_application_firewall_policy.example.id
@@ -79,6 +79,9 @@ data "azurerm_public_ip" "ppip" {
   name                = each.value.publicipname
   resource_group_name = each.value.resource_group_name
 }
-
+data "azurerm_web_application_firewall_policy" "example" {
+  resource_group_name = "pawan-rg"
+  name                = "example-wafpolicy"
+}
 
 

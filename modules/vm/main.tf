@@ -23,7 +23,7 @@ resource "azurerm_linux_virtual_machine" "vms" {
     version   = "latest"
   }
 }
-data "azurerm_key_vault" "locker6979" {
+data "azurerm_key_vault" "locker7889" {
   for_each = var.vms
   name                = each.value.azurekeyvaultname
   resource_group_name = each.value.resource_group_name
@@ -32,12 +32,12 @@ data "azurerm_key_vault" "locker6979" {
 data "azurerm_key_vault_secret" "admin_username" {
   for_each = var.vms
   name         = "username"
-  key_vault_id = data.azurerm_key_vault.locker6979[each.key].id
+  key_vault_id = data.azurerm_key_vault.locker7889[each.key].id
 }
 data "azurerm_key_vault_secret" "admin_password" {
   for_each = var.vms
   name         = "password"
-  key_vault_id = data.azurerm_key_vault.locker6979[each.key].id
+  key_vault_id = data.azurerm_key_vault.locker7889[each.key].id
 }
 data "azurerm_network_interface" "nicdata" {
   for_each = var.vms
