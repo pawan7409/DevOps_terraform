@@ -140,3 +140,9 @@ module "azurerm_availability_set" {
   availability_set=var.availability_set
   
 }
+module "azurerm_linux_virtual_machine_scale_set" {
+  source ="../modules/vmss"
+  depends_on=[module.resourcegroup ]
+  vmss= var.vmss
+  
+}

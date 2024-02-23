@@ -301,4 +301,16 @@ storageaccount = {
 
 # }
 
+vmss={
+  vmss1={
+    name="exampleset"
+    location="central india"
+    resource_group_name="pawan-rg"
+    subnetname="subnet1"
+    virtual_network_name="vnet01"
+    
+
+  }
+}
+
 

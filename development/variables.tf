@@ -83,3 +83,6 @@ variable "storageaccount" {
 variable "availability_set" {
   default = {}
 }
+variable "vmss" {
+  default = {}
+}
