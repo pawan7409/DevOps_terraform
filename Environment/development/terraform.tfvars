@@ -47,12 +47,12 @@ subnet = {
   }
 }
 pip = {
-  # pip1 = {
-  #   name                = "pip1"
-  #   resource_group_name = "pawan-rg"
-  #   location            = "East us"
-  #   allocation_method   = "Static"
-  # }
+  pip1 = {
+    name                = "pip1"
+    resource_group_name = "pawan-rg"
+    location            = "East us"
+    allocation_method   = "Static"
+  }
   # pip2 = {
   #   name                = "pip2"
   #   resource_group_name = "pawan-rg"
@@ -115,17 +115,17 @@ nic = {
 
 
   }
-  frontendnic2 = {
-    name                = "frontendnic2"
-    location            = "East us"
-    resource_group_name = "pawan-rg"
-    # subnet_id                     = "/subscriptions/7b50ca88-25f1-4f6a-a426-06baa8bfa998/resourceGroups/pawan-rg/providers/Microsoft.Network/virtualNetworks/vnet01/subnets/subnet1"
-    private_ip_address_allocation = "Dynamic"
-    # public_ip_address_id          = "/subscriptions/7b50ca88-25f1-4f6a-a426-06baa8bfa998/resourceGroups/pawan-rg/providers/Microsoft.Network/publicIPAddresses/pip2"
-    ipname               = "PublicIPAddress"
-    subnetname           = "subnet1"
-    virtual_network_name = "vnet01"
-  }
+  # frontendnic2 = {
+  #   name                = "frontendnic2"
+  #   location            = "East us"
+  #   resource_group_name = "pawan-rg"
+  #   # subnet_id                     = "/subscriptions/7b50ca88-25f1-4f6a-a426-06baa8bfa998/resourceGroups/pawan-rg/providers/Microsoft.Network/virtualNetworks/vnet01/subnets/subnet1"
+  #   private_ip_address_allocation = "Dynamic"
+  #   # public_ip_address_id          = "/subscriptions/7b50ca88-25f1-4f6a-a426-06baa8bfa998/resourceGroups/pawan-rg/providers/Microsoft.Network/publicIPAddresses/pip2"
+  #   ipname               = "PublicIPAddress"
+  #   subnetname           = "subnet1"
+  #   virtual_network_name = "vnet01"
+  # }
 }
 
 vms = {
@@ -140,25 +140,26 @@ vms = {
     # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic2"]
     #  azurekeyvaultname="locker6979"
     nicname           = "frontendnic"
-    azurekeyvaultname = "locker7889"
+    azurekeyvaultname = "locker7888"
+    userdata_scripts= "installed-nginx.sh"
     
 
 
   }
-  vm02 = {
-    name                = "backendvm"
-    resource_group_name = "pawan-rg"
-    location            = "East us"
-    size                = "Standard_D2as_v4"
-    # admin_username                  = "vm01"
-    # admin_password                  = "Rjil@12345678"
-    disable_password_authentication = false
-    # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic"]
-    azurekeyvaultname = "locker7889"
-    nicname           = "frontendnic2"
+  # vm02 = {
+  #   name                = "backendvm"
+  #   resource_group_name = "pawan-rg"
+  #   location            = "East us"
+  #   size                = "Standard_D2as_v4"
+  #   # admin_username                  = "vm01"
+  #   # admin_password                  = "Rjil@12345678"
+  #   disable_password_authentication = false
+  #   # network_interface_ids           = ["/subscriptions/b46c125c-073e-4204-83e3-4c2eef053249/resourceGroups/pawan-rg/providers/Microsoft.Network/networkInterfaces/frontendnic"]
+  #   azurekeyvaultname = "locker7888"
+  #   nicname           = "frontendnic2"
 
 
-  }
+  # }
 
 
 }
@@ -186,11 +187,11 @@ vms = {
 #   }
 # }
 azurekeyvault = {
-  azurekeyvault = {
-    name                = "locker7889"
-    location            = "Central india"
-    resource_group_name = "pawan-rg"
-  }
+  # azurekeyvault = {
+  #   name                = "locker7888"
+  #   location            = "Central india"
+  #   resource_group_name = "pawan-rg"
+  # }
 
 }
 # availability_set = {
