@@ -8,6 +8,7 @@ resource "azurerm_linux_virtual_machine" "vms" {
   admin_password                  = data.azurerm_key_vault_secret.admin_password[each.key].value
   disable_password_authentication = false
   network_interface_ids           = [data.azurerm_network_interface.nicdata[each.key].id]
+   custom_data = base64encode(scripts("${path.module}/../scripts/install-nginx.sh"))
 
 
   # admin_ssh_key {

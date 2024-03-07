@@ -6,7 +6,9 @@ variable "vnet" {
 default = {}
 }
 # variable "vnetpeering" {
-    
+    variable "scripts" {
+ default     = {}
+}
 
 # }
 variable "subnet" {
@@ -43,6 +45,7 @@ variable "sqlservers" {
 
 }
 variable "sqldatabase" {
+    default = {}
 
 }
 variable "azurekeyvault" {

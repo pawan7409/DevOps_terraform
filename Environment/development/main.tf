@@ -1,13 +1,18 @@
 module "resourcegroup" {
-  source  = "../modules/resourcegroup"
+  source  = "../../modules/resourcegroup"
   rg-name = var.rg-name
 }
+output "resourcegroup" {
+  value = module.resourcegroup.resource_group_info
+    
+  }
+  
 
-# module "virtualnetwork" {
-#   source     = "../modules/virtualnetworks"
-#   depends_on = [module.resourcegroup]
-#   vnet       = var.vnet
-
+module "virtualnetwork" {
+  source     = "../../modules/virtualnetworks"
+  depends_on = [module.resourcegroup]
+  vnet       = var.vnet
+}
 
 # }
 # # module "vnetpeering" {
@@ -18,67 +23,69 @@ module "resourcegroup" {
 
 
 
-# module "subnet" {
-#   source     = "../modules/subnets"
-#   depends_on = [module.virtualnetwork]
-#   subnet     = var.subnet
+module "subnet" {
+  source     = "../../modules/subnets"
+  depends_on = [module.virtualnetwork]
+  subnet     = var.subnet
 
 
-# }
+}
 
-# module "ipconfigure" {
-#   source     = "../modules/publicip"
-#   depends_on = [module.resourcegroup]
-#   pip        = var.pip
+module "ipconfigure" {
+  source     = "../../modules/publicip"
+  depends_on = [module.resourcegroup]
+  pip        = var.pip
 
-# }
+}
 
-# module "azurerm_network_security_group" {
-#   source     = "../modules/networksecuritygrp"
-#   depends_on = [module.resourcegroup]
-#   NSG        = var.NSG
-#   sg         = var.sg
+module "azurerm_network_security_group" {
+  source     = "../../modules/networksecuritygrp"
+  depends_on = [module.resourcegroup]
+  NSG        = var.NSG
+  sg         = var.sg
 
-# }
-# module "securitygroupassociation" {
-#   source      = "../modules/securitygroupassociation"
-#   depends_on  = [module.azurerm_network_security_group, module.resourcegroup, module.virtualnetwork]
-#   nsgsubnet01 = var.nsgsubnet01
+}
+module "securitygroupassociation" {
+  source      = "../../modules/securitygroupassociation"
+  depends_on  = [module.azurerm_network_security_group, module.resourcegroup, module.virtualnetwork]
+  nsgsubnet01 = var.nsgsubnet01
 
-# }
-# module "azurerm_network_interface" {
-#   source     = "../modules/interface"
-#   depends_on = [module.resourcegroup, module.subnet, module.ipconfigure]
-#   nic        = var.nic
+}
+module "azurerm_network_interface" {
+  source     = "../../modules/interface"
+  depends_on = [module.resourcegroup, module.subnet, module.ipconfigure]
+  nic        = var.nic
 
-# }
+}
 
 
-# module "vms" {
-#   source     = "../modules/vm"
-#   depends_on = [module.resourcegroup, module.azurerm_network_interface]
+module "vms" {
+  source     = "../../modules/vm"
+  depends_on = [module.resourcegroup, module.azurerm_network_interface]
+  vms = var.vms
+  scripts= var.scripts
+  
+}
 
-#   vms = var.vms
 
-# }
-# module "sqlservers" {
-#   source     = "../modules/azuresqlserver"
-#   depends_on = [module.resourcegroup]
-#   sqlservers = var.sqlservers
+module "sqlservers" {
+  source     = "../../modules/azuresqlserver"
+  depends_on = [module.resourcegroup]
+  sqlservers = var.sqlservers
 
-# }
-# module "sqldatabase" {
-#   source      = "../modules/azuresqldatabase"
-#   depends_on  = [module.sqlservers]
-#   sqldatabase = var.sqldatabase
+}
+module "sqldatabase" {
+  source      = "../../modules/azuresqldatabase"
+  depends_on  = [module.sqlservers]
+  sqldatabase = var.sqldatabase
 
-# }
-# module "azurekeyvault" {
-#   source        = "../modules/azurekeyvault"
-#   depends_on    = [module.resourcegroup]
-#   azurekeyvault = var.azurekeyvault
+}
+module "azurekeyvault" {
+  source        = "../../modules/azurekeyvault"
+  depends_on    = [module.resourcegroup]
+  azurekeyvault = var.azurekeyvault
 
-# }
+}
 # module "loadbalancer" {
 #   source     = "../modules/loadbalancer"
 #   depends_on = [module.resourcegroup]
