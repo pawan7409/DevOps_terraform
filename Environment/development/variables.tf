@@ -48,44 +48,44 @@ variable "sqldatabase" {
     default = {}
 
 }
-variable "azurekeyvault" {
-    default = {}
+# variable "azurekeyvault" {
+#     default = {}
 
-}
-variable "lbn" {
-   default = {}
-
-}
-variable "backassocia" {
-    default = {}
-
-}
-variable "bastions" {
-    default = {}
-
-}
-variable "applicationgateway" {
-    default = {}
-
-}
-variable "appgwassociation" {
-    default = {}
-
-}
-
-variable "storageaccount" {
-    default = {}
-
-}
-# variable "vnetpeering" {
-  
 # }
-# variable "vpngw" {
-  
+# variable "lbn" {
+#    default = {}
+
 # }
-variable "availability_set" {
-  default = {}
-}
-variable "vmss" {
-  default = {}
-}
+# variable "backassocia" {
+#     default = {}
+
+# }
+# variable "bastions" {
+#     default = {}
+
+# }
+# variable "applicationgateway" {
+#     default = {}
+
+# }
+# variable "appgwassociation" {
+#     default = {}
+
+# }
+
+# variable "storageaccount" {
+#     default = {}
+
+# }
+# # variable "vnetpeering" {
+  
+# # }
+# # variable "vpngw" {
+  
+# # }
+# variable "availability_set" {
+#   default = {}
+# }
+# variable "vmss" {
+#   default = {}
+# }

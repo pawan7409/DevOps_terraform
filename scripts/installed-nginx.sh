@@ -1,4 +1,5 @@
 #!/bin/bash
+apt update
 # 1. Clone the Git repository using the command:
 git clone https://github.com/devopsinsiders/todoapp-frontend-react.git
 # 2. Navigate to the cloned repository:
@@ -12,7 +13,7 @@ npm install
 #  Run "npm run build":
 npm run build
 # Update package index
-apt-get update
+
 # Install nginx:
 sudo apt-get install -y nginx
 #  Copy files to nginx server path:

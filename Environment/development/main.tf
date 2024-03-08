@@ -80,12 +80,12 @@ module "sqldatabase" {
   sqldatabase = var.sqldatabase
 
 }
-module "azurekeyvault" {
-  source        = "../../modules/azurekeyvault"
-  depends_on    = [module.resourcegroup]
-  azurekeyvault = var.azurekeyvault
+# module "azurekeyvault" {
+#   source        = "../../modules/azurekeyvault"
+#   depends_on    = [module.resourcegroup]
+#   azurekeyvault = var.azurekeyvault
 
-}
+# }
 # module "loadbalancer" {
 #   source     = "../modules/loadbalancer"
 #   depends_on = [module.resourcegroup]

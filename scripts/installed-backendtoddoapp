@@ -1,0 +1,37 @@
+! /usr/bin/env bash
+
+@REM set -euo pipefail
+
+@REM echo "[INFO] Installing Python" 
+
+@REM sudo apt update
+@REM sudo apt install python3-pip -y
+
+@REM echo "[INFO] Installing UnixODBC"
+
+@REM sudo apt-get update && sudo apt-get install -y unixodbc unixodbc-dev
+@REM curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+@REM curl https://packages.microsoft.com/config/debian/10/prod.list | sudo tee /etc/apt/sources.list.d/mssql-release.list > /dev/null
+@REM sudo apt-get update
+@REM sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
+
+@REM echo "[INFO] Installing pm2"
+@REM curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+@REM sudo apt-get install -y nodejs
+@REM sudo npm install pm2 -g
+
+@REM echo "[INFO] Setting up Backend Application for First Time"
+
+@REM sudo -u devopsadmin bash -c '
+@REM cd /home/devopsadmin/
+@REM git clone https://github.com/devopsinsiders/todoapp-backend-py.git
+@REM cd /home/devopsadmin/todoapp-backend-py
+@REM echo CONNECTION_STRING="Driver=Driver={ODBC Driver 17 for SQL Server};Server=tcp:mssqlserver34785367.database.windows.net,1433;Database=sqldatabase256789;Uid=serversql01;Pwd=Rjil@12345678;Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
+@REM pip install -r requirements.txt
+@REM pm2 start app.py
+@REM Install Node.js and NPM on Ubuntu:
+@REM Make sure you have Node.js 16.x and NPM installed on your machine. If not, you can install them using the following commands:
+@REM curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+@REM sudo apt install nodejs -y
+@REM cd ./src 
+@REM ls 

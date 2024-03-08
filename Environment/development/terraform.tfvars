@@ -13,13 +13,13 @@ vnet = {
     resource_group_name = "pawan-rg"
     address_space       = ["10.0.0.0/16"]
   },
-  vnet02 = {
+  # vnet02 = {
 
-    name                = "vnet02"
-    location            = "East us"
-    resource_group_name = "pawan-rg"
-    address_space       = ["10.0.0.0/16"]
-  }
+  #   name                = "vnet02"
+  #   location            = "East us"
+  #   resource_group_name = "pawan-rg"
+  #   address_space       = ["10.0.0.0/16"]
+  # }
 
 }
 
@@ -38,13 +38,13 @@ subnet = {
   #   address_prefixes     = "10.0.2.0/24"
 
   # }
-  subnet3 = {
-    name                 = "subnet3"
-    resource_group_name  = "pawan-rg"
-    virtual_network_name = "vnet01"
-    address_prefixes     = "10.0.3.0/24"
+  # subnet3 = {
+  #   name                 = "subnet3"
+  #   resource_group_name  = "pawan-rg"
+  #   virtual_network_name = "vnet01"
+  #   address_prefixes     = "10.0.3.0/24"
 
-  }
+  # }
 }
 pip = {
   pip1 = {
@@ -141,8 +141,9 @@ vms = {
     #  azurekeyvaultname="locker6979"
     nicname           = "frontendnic"
     azurekeyvaultname = "locker7888"
-    userdata_scripts= "installed-nginx.sh"
-    
+    # userdata_scripts= "installed-nginx.sh"
+    #  custom_data = base64encode(file("${path.module}/../../scripts/installed-nginx.sh"))
+    custom_data                     = "../../scripts/installed-nginx.sh"
 
 
   }
@@ -164,36 +165,36 @@ vms = {
 
 }
 
-# sqlservers = {
+sqlservers = {
 
-#   sqlserver1 = {
-#     name                         = "mssqlserver34785367"
-#     resource_group_name          = "pawan-rg"
-#     location                     = "East us"
-#     version                      = "12.0"
-#     administrator_login          = "serversql01"
-#     administrator_login_password = "Rjil@12345678"
+  sqlserver1 = {
+    name                         = "mssqlserver34785367"
+    resource_group_name          = "pawan-rg"
+    location                     = "East us"
+    version                      = "12.0"
+    administrator_login          = "serversql01"
+    administrator_login_password = "Rjil@12345678"
 
-#   }
-# }
-# sqldatabase = {
-#   sqldatabase1 = {
-#     name                = "sqldatabase256789"
-#     resource_group_name = "pawan-rg"
-#     location            = "East us"
-#     server_name         = "mssqlserver34785367"
-
-
-#   }
-# }
-azurekeyvault = {
-  # azurekeyvault = {
-  #   name                = "locker7888"
-  #   location            = "Central india"
-  #   resource_group_name = "pawan-rg"
-  # }
-
+  }
 }
+sqldatabase = {
+  sqldatabase1 = {
+    name                = "sqldatabase256789"
+    resource_group_name = "pawan-rg"
+    location            = "East us"
+    server_name         = "mssqlserver34785367"
+
+
+  }
+}
+# azurekeyvault = {
+#   # azurekeyvault = {
+#   #   name                = "locker7888"
+#   #   location            = "Central india"
+#   #   resource_group_name = "pawan-rg"
+#   # }
+
+# }
 # availability_set = {
 #   availability_set={
 #     name= "aset"
